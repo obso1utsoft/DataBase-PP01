@@ -23,7 +23,7 @@ namespace DataGrid
     public partial class MainWindow : Window
     {
         public static int recordsunM = 8;
-        public static int recordsIsM = 16;
+        public static int recordsIsM = 13;
         public static int records;
         public static int sp;
         public static MembersDateBase membersDateBase = new();

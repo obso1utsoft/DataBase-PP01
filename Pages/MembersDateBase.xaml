@@ -85,10 +85,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Класс" Binding="{Binding Class}" IsReadOnly="True" Width="*" MinWidth="130"/>
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birth_Year}" IsReadOnly="True" Width="*" MinWidth="130"/>
-                <DataGridTextColumn Header="Специализация" Binding="{Binding Specialization}" IsReadOnly="True" Width="*" MinWidth="205"/>
-                <DataGridTemplateColumn Header="Действия" IsReadOnly="True" Width="auto" MinWidth="93">
+                <DataGridTextColumn Header="Класс" Binding="{Binding Class}" Width="*" MinWidth="130"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birth_Year}" Width="*" MinWidth="130"/>
+                <DataGridTextColumn Header="Специализация" Binding="{Binding Specialization}" Width="*" MinWidth="205"/>
+                <DataGridTemplateColumn Header="Действия" Width="auto" MinWidth="93">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
