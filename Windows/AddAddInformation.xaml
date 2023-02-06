@@ -1,0 +1,73 @@
+﻿<Window x:Class="DataGrid.Windows.AddAddInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Height="250" Width="430" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        Background="Transparent" WindowStyle="None" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+
+    <Border CornerRadius="30" BorderBrush="#afb0b1" BorderThickness="0.5" Background="#EFF2F7" MouseDown="Border_MouseDown" KeyDown="Border_KeyDown">
+        <Grid Margin="30 10 30 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="0 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Добавить клуб" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="SemiBold"  Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Клуб"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" FontSize="18" FontWeight="SemiBold"  Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
+                    <TextBlock Margin="15 0" FontSize="14" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
+                           Panel.ZIndex="1" Text="робототехника"
+                           Visibility="{Binding ElementName=textBoxAddInformationAdd, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+
+                    <TextBox Name="textBoxAddInformationAdd" Height="30" FontSize="15" VerticalContentAlignment="Center" Foreground="#333" MaxLength="30" Style="{StaticResource filterTextBox}"/>
+                </Grid>
+
+                <TextBlock Text="Специализация" Grid.Row="2" Grid.RowSpan="2"  Grid.Column="0" FontSize="18" FontWeight="SemiBold"  Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="1">
+                    <TextBlock Margin="15 0" FontSize="14" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
+                           Panel.ZIndex="1" Text="техник"
+                           Visibility="{Binding ElementName=textBoxSpecializationAdd, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+
+                    <TextBox Name="textBoxSpecializationAdd" Height="30" FontSize="15" VerticalContentAlignment="Center" Foreground="#333" MaxLength="30" Style="{StaticResource filterTextBox}"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="10 0 0 0" Width="160" Style="{StaticResource addButton}" Click="AddAddInfo_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                        <TextBlock Text="Добавить"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="1" Margin="0 0 30 0" Style="{StaticResource addButton}" Click="Cansel_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="WindowClose" VerticalAlignment="Center" Margin="0 1 8 0" Width="9" Height="9"/>
+                        <TextBlock Text="Отмена"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

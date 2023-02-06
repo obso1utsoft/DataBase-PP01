@@ -1,0 +1,94 @@
+﻿<Window x:Class="DataGrid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Height="720" Width="1080" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        Background="Transparent" WindowStyle="None">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+
+    <Border CornerRadius="30" Background="#EFF2F7" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Left Menu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="1" Background="#623ED0" CornerRadius="0 50 0 30" Margin="0 70 0 0">
+                    <DockPanel>
+                        <!--Menu Logo-->
+                        <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="imageBrush"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+
+                        <!--Menu Titles-->
+                        <TextBlock Name="nameUser" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
+                        <TextBlock Name="prefix" Foreground="#D0BFFF" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"/>
+
+                        <!--Menu Seprator-->
+                        <Separator Margin="25" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
+
+                        <!--Menu Buttons-->
+                        <StackPanel DockPanel.Dock="Top" >
+                            <ToggleButton Style="{StaticResource menuTButton}" Name="MembersButtonMenu" Click="MembersButtonMenu_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Участники"/>
+                                </StackPanel>
+                            </ToggleButton>
+
+                            <ToggleButton Style="{StaticResource menuTButton}" Name="HobbiesButtonMenu" Click="HobbiesButtonMenu_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="GamepadCircle" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Хобби"/>
+                                </StackPanel>
+                            </ToggleButton>
+
+                            <ToggleButton Style="{StaticResource menuTButton}" Name="AddInfoButtonMenu" Click="AddInfoButtonMenu_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="CityVariantOutline" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Клубы"/>
+                                </StackPanel>
+                            </ToggleButton>
+
+                            <ToggleButton Style="{StaticResource menuTButton}" Name="UsersButtonMenu" Click="UsersButtonMenu_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Пользователи"/>
+                                </StackPanel>
+                            </ToggleButton>
+
+                        </StackPanel>
+
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom"
+                                DockPanel.Dock="Bottom" Margin="15 0 15 30"
+                                Click="LogoutButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Выйти"/>
+                            </StackPanel>
+                        </Button>
+
+                    </DockPanel>
+                </Border>
+
+            </Grid>
+
+            <!--Main Section-->
+            <Frame Name="MainFrame" Grid.Column="1" Margin="30 50 20 20" NavigationUIVisibility="Hidden"  Navigating="HandleNavigating"/>
+        </Grid>
+    </Border>
+</Window>
