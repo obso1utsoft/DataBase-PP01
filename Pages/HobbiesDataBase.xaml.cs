@@ -214,7 +214,6 @@ namespace DataGrid.Pages
                                   " FROM members, hobbies, additional_information" +
                                   " WHERE hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND hobbies LIKE '%" + textBoxFilter.Text + "%'" +
                                   " OR hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND add_information LIKE '%" + textBoxFilter.Text + "%'" +
-                                  " OR hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND birth_year LIKE '%" + textBoxFilter.Text + "%'" +
                                   " OR hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND hobbies.id LIKE '%" + textBoxFilter.Text + "%' ORDER BY hobbies.id";
                 dr = cmd.ExecuteReader();
                 dr.Read();

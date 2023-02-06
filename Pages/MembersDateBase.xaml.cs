@@ -237,7 +237,6 @@ namespace DataGrid.Pages
                 cmd.CommandText = "SELECT members.id, full_name, class, birth_year, additional_information.specialization FROM members, hobbies, additional_information" +
                                   " WHERE hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND full_name LIKE '%" + textBoxFilter.Text + "%'" +
                                   " OR hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND class LIKE '%" + textBoxFilter.Text + "%'" +
-                                  " OR hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND birth_year LIKE '%" + textBoxFilter.Text + "%'" +
                                   " OR hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND additional_information.specialization LIKE '%" + textBoxFilter.Text + "%'" +
                                   " OR hobbies.id_full_name = members.id AND hobbies.id_add_information = additional_information.id_add_info AND members.id LIKE '%" + textBoxFilter.Text + "%' ORDER BY id";
                 dr = cmd.ExecuteReader();
